@@ -15,6 +15,15 @@
         socket.emit('ping');
         return false;
       });
+
+      const createMessage = (message) => {
+        const messagesUl = document.querySelector('#messages');
+        const li = document.createElement('li');
+        li.innerText = message;
+        messagesUl.appendChild(li);
+      };
+
+      socket.on('ola', (mensagem) => createMessage(mensagem));
     </script>
   </body>
 </html>
